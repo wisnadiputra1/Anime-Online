@@ -10,7 +10,7 @@ const Card = ({datas}) => {
           Episodes: {data.episodes}
         </p>
         <p className="w-max h-max absolute z-10 right-0 top-[90px] flex items-center justify-around gap-1 bg-blue-500 bg-opacity-90 text-white px-1 rounded-s-md">
-          <img src="./public/Firee.png" alt="Firee" width="12px" />
+          <img src="Firee.png" alt="Firee" width="12px" />
           {data.score}
         </p>
         {data.images && data.images.webp && (
