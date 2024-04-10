@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.active.link{
+    background-color: rgb(56 189 248);
+}
