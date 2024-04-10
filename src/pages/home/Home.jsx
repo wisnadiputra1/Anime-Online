@@ -56,7 +56,7 @@ const Home = () => {
           </div>
         </div>
             {/* popular card */}
-            <div className="mt-3 mx-5 grid grid-cols-3 md:grid-cols-5 lg:grid-cols-5 lg:w-full">
+            <div className="mt-3 mx-5 grid grid-cols-2 md:grid-cols-5 lg:grid-cols-5 lg:w-full">
               <Card datas={animes} />
             </div>
 
