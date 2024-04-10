@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Card = ({datas}) => {
 
   return datas && datas.map((data) => (
-    <Link key={data.mal_id} to={`/anime/${data.mal_id}`} className="max-w-[120px] max-h-[200px] md:max-h-[220px] md:max-w-[140px] mb-10 group">
+    <Link key={data.mal_id} to={`/anime/${data.mal_id}`} className="max-w-[140px] max-h-[200px] md:max-h-[220px] md:max-w-[140px] mb-10 group">
       <div className="relative cursor-pointer  overflow-hidden">
         <p className="w-max h-max absolute z-10 px-2 text-white bg-black bg-opacity-70 text-sm">
           Episodes: {data.episodes}
