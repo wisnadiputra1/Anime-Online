@@ -51,7 +51,7 @@ const Search = () => {
           </div>
         </div>
 
-        <div className="mb-1 mt-3 mx-5 grid grid-cols-3 md:grid-cols-5 lg:grid-cols-5 lg:w-full">
+        <div className="mb-1 mt-3 mx-5 grid grid-cols-2 md:grid-cols-5 lg:grid-cols-5 lg:w-full">
             {anims.length === 0 ? <h2>No anime contains {query}</h2> : <Card datas={anims} />}
           
         </div>
