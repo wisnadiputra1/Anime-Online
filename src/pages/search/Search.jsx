@@ -19,7 +19,7 @@ const Search = () => {
         const data = await result.json();
         setAnims(data.data);
         setTotalPages(data.pagination.items.total);
-        console.log(data);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     setAnims([]);
     getAnim(currentPage);
@@ -28,12 +28,10 @@ const Search = () => {
 
   const handleNextPage = () => {
     setCurrentPage(currentPage + 1);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handlePrevPage = () => {
     setCurrentPage(currentPage - 1);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
