@@ -1,11 +1,12 @@
 import Card from '../../components/Card'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import {ChevronLeft, ChevronRight} from 'lucide-react'
 
 const AnimeList = () => {
   const [populars, setPopulars] = useState([])
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
+  const refToScroll = useRef(null);
 
   useEffect(() => {
     async function getPopulars(page) {
@@ -23,14 +24,16 @@ const AnimeList = () => {
 
   const handleNextPage = () => {
     setCurrentPage(currentPage + 1);
+    refToScroll.current.scrollIntoView({ behavior: 'smooth' });
   };
 
   const handlePrevPage = () => {
     setCurrentPage(currentPage - 1);
+    refToScroll.current.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <main>
+    <main ref={refToScroll}>
       <div className="bg-zinc-800 w-full lg:w-1/2 lg:mx-auto h-full pb-1 mt-3 overflow-hidden">
         <div className="bg-sky-400 pb-[0.1px] mx-3">
           <div className="my-3  pb-1 bg-zinc-700 w-full mt-4">
