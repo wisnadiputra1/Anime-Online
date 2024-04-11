@@ -67,7 +67,7 @@ const Search = () => {
                     <img
                       src={data.images.webp.image_url}
                       alt="Anime"
-                      className="w-[120px] h-[200px] md:w-[140px] md:h-[220px] "
+                      className="w-[165px] h-[215px] md:w-[140px] md:h-[220px] "
                     />
                   )}
                   <h2 className={`z-20 w-[165px]  h-[85px] md:w-[140px] md:h-[90px] text-center absolute bottom-[0.1px] mx-auto text-white bg-black bg-opacity-70 px-2 py-1 text-sm line-clamp-1 translate-y-[70%] group-hover:translate-y-[0] group-hover:line-clamp-3 transition duration-500`} >
