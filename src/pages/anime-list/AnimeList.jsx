@@ -14,6 +14,7 @@ const AnimeList = () => {
       const data = await response.json();
       setPopulars(data.data);
       setTotalPages(data.pagination.items.total);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     setPopulars([])
     getPopulars(currentPage);
