@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import Card from "../../components/Card";
 import {ChevronLeft, ChevronRight} from 'lucide-react'
 
@@ -6,14 +6,13 @@ const OnGoing = () => {
   const [seasons, setSeasons] = useState([])
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
-  const refToScroll = useRef(null);
 
   useEffect(() => {
     async function getSeasons(page) {
       const response = await fetch(`https://api.jikan.moe/v4/seasons/now?page=${page}`)
       const data = await response.json();
       setSeasons(data.data);
-      console.log(data)
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       setTotalPages(data.pagination.items.total);
     }
     setSeasons([])
@@ -22,17 +21,15 @@ const OnGoing = () => {
 
   const handleNextPage = () => {
     setCurrentPage(currentPage + 1);
-    refToScroll.current.scrollIntoView({ behavior: 'smooth' });
   };
 
   const handlePrevPage = () => {
     setCurrentPage(currentPage - 1);
-    refToScroll.current.scrollIntoView({ behavior: 'smooth' });
   };
 
 
   return (
-    <main ref={refToScroll}>
+    <main >
       <div className="bg-zinc-800 w-full lg:w-1/2 lg:mx-auto h-full pb-1 mt-3 overflow-hidden">
         <div className="bg-sky-400 pb-[0.1px] mx-3">
           <div className="my-3  pb-1 bg-zinc-700 w-full mt-4">
