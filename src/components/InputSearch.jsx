@@ -25,7 +25,7 @@ const InputSearch = () => {
   return (
     <div className=" lg:w-max md:w-max w-screen mx-3 my-2">
          <form  action="">
-            <input type="text" placeholder="Search anime..." value={searchTerm} className="outline-none py-1 px-2 w-full" autoFocus onChange={handleInputChange} onKeyDown={handleKeyDown} required />
+            <input type="text" placeholder="Search anime..." value={searchTerm} className="outline-none py-1 px-2 w-full" onChange={handleInputChange} onKeyDown={handleKeyDown} required />
         </form>
     </div>
        
