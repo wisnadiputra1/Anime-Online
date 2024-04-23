@@ -22,7 +22,7 @@ const DetailAnime = () => {
   const youtube_id = animes.trailer.youtube_id;
   const embedUrl =
     animes.trailer.embed_url ||
-    `https://www.youtube.com/embed/${youtube_id}?enablejsapi=1&wmode=opaque&autoplay=1`;
+    `https://www.youtube.com/embed/${youtube_id}?enablejsapi=1&wmode=opaque&autoplay=0`;
 
   return (
     <div className="bg-zinc-800 lg:w-1/2 lg:mx-auto p-3">
