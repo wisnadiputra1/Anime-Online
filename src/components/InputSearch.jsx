@@ -4,7 +4,7 @@ import { useState } from 'react';
 const InputSearch = () => {
 
     
-    const [searchTerm, setSearchTerm] = useState(null);
+    const [searchTerm, setSearchTerm] = useState('');
     const router = useNavigate();
 
   const handleKeyDown = async (e) => {
