@@ -43,22 +43,22 @@ const DetailAnime = () => {
         )}
 
         <div className="m-2">
-          <p className="font-medium">
+          <p className="font-medium line-clamp-1">
             Judul{" "}
-            <span className="px-[67px] font-normal">: {animes.title}</span>
+            <span className="px-[67px] font-normal text-sm">: {animes.title}</span>
           </p>
-          <p className="font-medium">
+          <p className="font-medium line-clamp-1">
             Japanese{" "}
-            <span className="px-[40px] font-normal">
+            <span className="px-[40px] font-normal text-sm">
               : {animes.title_japanese}
             </span>
           </p>
-          <p className="font-medium">
-            Skor <span className="px-[74px] font-normal">: {animes.score}</span>
+          <p className="font-medium line-clamp-1">
+            Skor <span className="px-[74px] font-normal text-sm">: {animes.score}</span>
           </p>
-          <p className="font-medium">
+          <p className="font-medium line-clamp-1 ">
             Produser{" "}
-            <span className="px-[42px] font-normal">
+            <span className="px-[42px] font-normal text-sm ">
               :
               {animes.producers &&
                 animes.producers.map((producer, index) => (
@@ -69,28 +69,28 @@ const DetailAnime = () => {
                 ))}
             </span>
           </p>
-          <p className="font-medium">
-            Tipe <span className="px-[77px] font-normal">: {animes.type}</span>
+          <p className="font-medium line-clamp-1">
+            Tipe <span className="px-[77px] font-normal text-sm">: {animes.type}</span>
           </p>
-          <p className="font-medium">
+          <p className="font-medium line-clamp-1">
             Status{" "}
-            <span className="px-[64px] font-normal">: {animes.status}</span>
+            <span className="px-[64px] font-normal text-sm">: {animes.status}</span>
           </p>
-          <p className="font-medium">
+          <p className="font-medium line-clamp-1">
             Total Episode{" "}
-            <span className="px-[12px] font-normal">: {animes.episodes}</span>
+            <span className="px-[12px] font-normal text-sm">: {animes.episodes}</span>
           </p>
-          <p className="font-medium">
+          <p className="font-medium line-clamp-1">
             Durasi{" "}
-            <span className="px-[62px] font-normal">: {animes.duration}</span>
+            <span className="px-[62px] font-normal text-sm">: {animes.duration}</span>
           </p>
-          <p className="font-medium">
+          <p className="font-medium line-clamp-1">
             Tanggal Rilis{" "}
-            <span className="px-[18px] font-normal">: {animes.year}</span>
+            <span className="px-[18px] font-normal text-sm">: {animes.year}</span>
           </p>
-          <p className="font-medium">
+          <p className="font-medium line-clamp-1">
             Studio
-            <span className="px-[61px] font-normal">
+            <span className="px-[61px] font-normal text-sm">
               {" "}
               :
               {animes.studios &&
@@ -102,9 +102,9 @@ const DetailAnime = () => {
                 ))}
             </span>
           </p>
-          <p className="font-medium">
+          <p className="font-medium line-clamp-1">
             Genre
-            <span className="px-16 font-normal">
+            <span className="px-16 font-normal text-sm">
               {" "}
               :
               {animes.genres &&
@@ -132,7 +132,7 @@ const DetailAnime = () => {
           height="210"
           src={embedUrl}
           allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
+          allowFullScreen
           title="Embedded YouTube Video"
         ></iframe>
 
