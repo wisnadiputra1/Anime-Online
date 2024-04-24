@@ -129,7 +129,7 @@ const DetailAnime = () => {
         <iframe
           className="mx-auto md:w-[570px] md:h-[330px] md:max-w-[1080px] md:max-h-[720px]"
           width="360"
-          height="21"
+          height="210"
           src={embedUrl}
           allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
