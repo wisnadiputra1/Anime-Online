@@ -120,12 +120,16 @@ const DetailAnime = () => {
         </div>
       </div>
 
-      <div className="video-player w-full mt-5">
+      <div className="bg-sky-400 w-full mt-5 rounded-sm">
+        <h3 className="w-max mx-auto text-lg font-semibold text-white">Tonton Trailer Anime!!</h3>
+      </div>
+
+      <div className="video-player w-full h-full bg-zinc-700 pb-1 mt-2">
         {/* Embedded YouTube video */}
         <iframe
-          className="mx-auto"
+          className="mx-auto md:w-[570px] md:h-[330px] md:max-w-[1080px] md:max-h-[720px]"
           width="360"
-          height="215"
+          height="21"
           src={embedUrl}
           allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
@@ -135,7 +139,7 @@ const DetailAnime = () => {
         {/* Link to the original YouTube video */}
         <p className=" w-max mx-auto my-5">
           <a
-            className="text-white p-2 bg-sky-600 w-max mx-auto"
+            className="text-white p-2 bg-sky-600 w-max mx-auto rounded-md"
             href={embedUrl}
             target="_blank"
             rel="noopener noreferrer"
