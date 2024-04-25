@@ -2,12 +2,15 @@ import { useState, useEffect } from "react";
 import Card from "../../components/Card";
 import { Link } from "react-router-dom";
 import PopUp from "../../components/PopUp";
+import { Loader } from "lucide-react";
 
 const Home = () => {
   const [animes, setAnimes] = useState([]);
-  const [seasons, setSeasons] = useState([])
-  const [showPopUp, setShowPopUp] = useState(true)
+  const [seasons, setSeasons] = useState([]);
+  const [showPopUp, setShowPopUp] = useState(true);
   const [timeLeft, setTimeLeft] = useState(7);
+  const [loading, setLoading] = useState(true);
+
 
   useEffect(() => {
     async function getAnim() {
@@ -15,6 +18,7 @@ const Home = () => {
       const data = await response.json();
       setAnimes(data.data);
       console.log(data.data)
+      
     }
 
     
@@ -23,13 +27,19 @@ const Home = () => {
       const data = await response.json();
       setSeasons(data.data);
     }
+
     getAnim();
+
+    
 
     setTimeout(() => {
       getSeasons()
+      setLoading(false)
     }, 1500);
     
   }, []);
+
+
 
   //untuk popup di awal
   useEffect(() =>{
@@ -51,6 +61,13 @@ const Home = () => {
 
   return (
     <main>
+      {
+        loading ? <div className="relative">
+          <div className="absolute right-[37%] bg-black bg-opacity-35 z-40">
+            <h1 className="text-white z-40 flex">Loading data...<Loader color="#00bfff" className="animate-spin" /></h1>
+          </div>
+          </div> : null
+      }
       <div className="relative">
         {
           showPopUp &&(
