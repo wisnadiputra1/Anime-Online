@@ -2,7 +2,7 @@
 // eslint-disable-next-line react/prop-types
 const PopUp = ({timeLeft}) => {
   return (
-    <div className='text-white absolute z-20 right-[15%] w-[280px] h-[190px] bg-white drop-shadow-lg md:right-[43%] mt-20'>
+    <div className='text-white absolute z-30 right-[15%] w-[280px] h-[190px] bg-white drop-shadow-lg md:right-[43%] mt-20'>
         <div className='bg-sky-400 py-1'>
             <h3 className='text-center text-red-600 text-lg font-bold'>Perhatian!!</h3>
         </div>

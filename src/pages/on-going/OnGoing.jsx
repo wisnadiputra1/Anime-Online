@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import Card from "../../components/Card";
-import {ChevronLeft, ChevronRight} from 'lucide-react'
+import {ChevronLeft, ChevronRight, Loader} from 'lucide-react'
 
 const OnGoing = () => {
   const [seasons, setSeasons] = useState([])
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function getSeasons(page) {
@@ -13,6 +14,7 @@ const OnGoing = () => {
       const data = await response.json();
       setSeasons(data.data);
       setTotalPages(data.pagination.items.total);
+      setLoading(false);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     setSeasons([])
@@ -30,6 +32,13 @@ const OnGoing = () => {
 
   return (
     <main >
+      {
+        loading ? <div className="relative">
+          <div className="absolute right-[37%] bg-black bg-opacity-35 z-30">
+            <h1 className="text-white z-40 flex">Loading data...<Loader color="#00bfff" className="animate-spin" /></h1>
+          </div>
+          </div> : null
+      }
       <div className="bg-zinc-800 w-full lg:w-1/2 lg:mx-auto h-full pb-1 mt-3 overflow-hidden">
         <div className="bg-sky-400 pb-[0.1px] mx-3">
           <div className="my-3  pb-1 bg-zinc-700 w-full mt-4">
