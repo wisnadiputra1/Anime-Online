@@ -1,14 +1,11 @@
 import { useState, useEffect } from "react";
 import Card from "../../components/Card";
 import { Link } from "react-router-dom";
-import PopUp from "../../components/PopUp";
 import { Loader } from "lucide-react";
 
 const Home = () => {
   const [animes, setAnimes] = useState([]);
   const [seasons, setSeasons] = useState([]);
-  const [showPopUp, setShowPopUp] = useState(true);
-  const [timeLeft, setTimeLeft] = useState(7);
   const [loading, setLoading] = useState(true);
 
 
@@ -41,26 +38,12 @@ const Home = () => {
 
 
 
-  //untuk popup di awal
-  useEffect(() =>{
-    const timer = setInterval(() => {
-      setTimeLeft(prevTimeLeft => prevTimeLeft - 1);
-    }, 1000);
-
-    const hideTimer = setTimeout(() => {
-      setShowPopUp(false);
-    },7000);
-
-
-    return () => {
-      clearInterval(timer);
-      clearTimeout(hideTimer);
-    } 
-  },[])
+ 
   
 
   return (
     <main>
+      
       {
         loading ? <div className="relative">
           <div className="absolute right-[37%] bg-black bg-opacity-35 z-40">
@@ -68,13 +51,6 @@ const Home = () => {
           </div>
           </div> : null
       }
-      <div className="relative">
-        {
-          showPopUp &&(
-            <PopUp timeLeft={timeLeft} />
-          )
-        }
-      </div>
       <div className="bg-zinc-800 w-full lg:w-1/2 lg:mx-auto h-full pb-1 mt-3 overflow-hidden">
         <div className="bg-sky-400 pb-[0.1px] mx-3">
           <div className="my-3  pb-1 bg-zinc-700 w-full mt-4">
