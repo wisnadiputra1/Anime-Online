@@ -31,7 +31,7 @@ const BaseLayout = () => {
     <main className="bg-black h-screen">
       {
           showPopUp ? (
-            <div className="fixed z-50 bg-black w-full h-screen bg-opacity-50 flex items-center justify-center">
+            <div className="fixed z-50 bg-black w-full h-full bg-opacity-50 flex items-center justify-center">
               <PopUp timeLeft={timeLeft} />
             </div>
           )
