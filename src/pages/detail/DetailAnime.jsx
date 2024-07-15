@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 const DetailAnime = () => {
   let { title } = useParams();
   const [animes, setAnimes] = useState(null);
+  const [theme, setTheme] = useState(null);
 
   useEffect(() => {
     async function getAnim() {
@@ -13,6 +14,16 @@ const DetailAnime = () => {
       console.log(data.data);
     }
     getAnim();
+  }, [title]);
+
+  useEffect(() => {
+    const fetchTheme = async () => {
+      const res = await fetch(`https://api.jikan.moe/v4/anime/${title}/themes`);
+      const data = await res.json();
+      setTheme(data.data);
+      console.log("theme: ", data.data);
+    };
+    fetchTheme();
   }, [title]);
 
   if (!animes) {
@@ -45,7 +56,9 @@ const DetailAnime = () => {
         <div className="m-2">
           <p className="font-medium line-clamp-1">
             Judul{" "}
-            <span className="px-[67px] font-normal text-sm">: {animes.title}</span>
+            <span className="px-[67px] font-normal text-sm">
+              : {animes.title}
+            </span>
           </p>
           <p className="font-medium line-clamp-1">
             Japanese{" "}
@@ -54,7 +67,10 @@ const DetailAnime = () => {
             </span>
           </p>
           <p className="font-medium line-clamp-1">
-            Skor <span className="px-[74px] font-normal text-sm">: {animes.score}</span>
+            Skor{" "}
+            <span className="px-[74px] font-normal text-sm">
+              : {animes.score}
+            </span>
           </p>
           <p className="font-medium line-clamp-1 ">
             Produser{" "}
@@ -70,23 +86,34 @@ const DetailAnime = () => {
             </span>
           </p>
           <p className="font-medium line-clamp-1">
-            Tipe <span className="px-[77px] font-normal text-sm">: {animes.type}</span>
+            Tipe{" "}
+            <span className="px-[77px] font-normal text-sm">
+              : {animes.type}
+            </span>
           </p>
           <p className="font-medium line-clamp-1">
             Status{" "}
-            <span className="px-[64px] font-normal text-sm">: {animes.status}</span>
+            <span className="px-[64px] font-normal text-sm">
+              : {animes.status}
+            </span>
           </p>
           <p className="font-medium line-clamp-1">
             Total Episode{" "}
-            <span className="px-[12px] font-normal text-sm">: {animes.episodes}</span>
+            <span className="px-[12px] font-normal text-sm">
+              : {animes.episodes}
+            </span>
           </p>
           <p className="font-medium line-clamp-1">
             Durasi{" "}
-            <span className="px-[62px] font-normal text-sm">: {animes.duration}</span>
+            <span className="px-[62px] font-normal text-sm">
+              : {animes.duration}
+            </span>
           </p>
           <p className="font-medium line-clamp-1">
             Tanggal Rilis{" "}
-            <span className="px-[18px] font-normal text-sm">: {animes.year}</span>
+            <span className="px-[18px] font-normal text-sm">
+              : {animes.year}
+            </span>
           </p>
           <p className="font-medium line-clamp-1">
             Studio
@@ -121,7 +148,9 @@ const DetailAnime = () => {
       </div>
 
       <div className="bg-sky-400 w-full mt-5 rounded-sm">
-        <h3 className="w-max mx-auto text-lg font-semibold text-white">Tonton Trailer Anime!!</h3>
+        <h3 className="w-max mx-auto text-lg font-semibold text-white">
+          Tonton Trailer Anime!!
+        </h3>
       </div>
 
       <div className="video-player w-full h-full bg-zinc-700 pb-1 mt-2">
@@ -147,6 +176,27 @@ const DetailAnime = () => {
             Watch on YouTube
           </a>
         </p>
+      </div>
+
+      <div className="bg-sky-400 w-full mt-5 rounded-sm">
+        <h3 className="w-max mx-auto text-lg font-semibold text-white">
+          Anime Theme Song
+        </h3>
+      </div>
+
+      <div className="w-full h-full bg-zinc-700 pb-1 mt-2 mb-2 p-2 text-white">
+        <h1 className="text-xl font-bold text-sky-400">Openings</h1>
+
+        {theme?.openings &&
+          theme.openings.map((opening, index) => {
+            return <p key={index}>Openings theme : {opening}</p>;
+          })}
+        <br />
+        <h1 className="text-xl font-bold text-sky-400">Endings</h1>
+        {theme?.openings &&
+          theme.endings.map((opening, index) => {
+            return <p key={index}>Endings theme : {opening}</p>;
+          })}
       </div>
     </div>
   );
